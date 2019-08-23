@@ -1,0 +1,13 @@
+<h1>Welcome!</h1>
+<div class="container">
+  Welcome {{name}}. Welcome to our app. You can manage your lessons <a routerLink="/todos">here</a>
+</div>
+<div class="container">
+  Click here to get a customerized message
+  <button (click)="getWelcomeMessageParameter()" class="btn btn-success">Get Welcome Message</button>
+</div>
+<div class="container" *ngIf="welcomeMessageFromService">
+  <h2>Your customerized message </h2>
+  {{welcomeMessageFromService}}
+</div>
+

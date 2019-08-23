@@ -1,0 +1,39 @@
+<h1>My Classes</h1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+<table class="table"> 
+  <caption>My Classes</caption>
+<thead>
+<tr>
+
+<th>Last Name</th>
+<th>First Name</th>
+<th>Gender</th>
+<th>Birthday</th>
+<th>Course</th>
+<th>Finish</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let todo of todos">
+        
+        <td>{{todo.lastname}}</td>
+        <td>{{todo.firstname}}</td>
+        <td>{{todo.gender}}</td>
+        <td>{{todo.birthDay|date|uppercase}}</td>
+        <td>{{todo.course}}</td>
+        <td>{{todo.done}}</td>
+        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+        <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+        </tr>
+</tbody>
+
+</table>
+<div class="row">
+    <button (click)="addTodo()" class="btn btn-success">Add</button>
+</div>
+
+</div>

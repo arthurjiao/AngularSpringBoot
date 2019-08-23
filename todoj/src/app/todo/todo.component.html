@@ -1,0 +1,26 @@
+<H1>ToDo</H1>
+<div class="container">
+    <div class="container">
+        <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
+        <div class="alert alert-warning" *ngIf="todoForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+        <div class="alert alert-warning" *ngIf="todoForm.dirty && description.invalid">Enter atleast 5 characters in Description</div>
+        <!-- /*public id:number,
+        public lastname:string,
+        public firstname:string,
+        public gender:string,
+        public course:string,
+        public done:boolean,
+        public targetDate:Date*/  -->
+  <form (ngSubmit)="!todoForm.invalid&&saveTodo()" #todoForm="ngForm">
+    <fieldset class="form-group">
+      <label>Course</label>
+    <input type="text"  #course="ngModel" [(ngModel)]="todo.course" class="form-control" name="course" required="required"  minlength="5">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Finish or not</label>
+      <input type="boolean" [ngModel]="todo.done" #done="ngModel"
+      (ngModelChange)="todo.done=$event" class="form-control" name="done" required="required">
+    </fieldset>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </form>
+</div>
